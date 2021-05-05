@@ -3,18 +3,13 @@ import React, { Fragment } from 'react'
 const Sushi = (props) => {
   return (
     <div className="sushi">
-      <div className="plate" 
-           onClick={/* Give me a callback! */ null}>
-        { 
+      <div className="plate" onClick={() => props.eatSushi(props.sushiData)}>
+        { props.consumedSushi.includes(props.sushiData)? null : <img src={props.sushiData.img_url} width="100%" />
           /* Tell me if this sushi has been eaten! */ 
-          false ?
-            null
-          :
-            <img src={/* Give me an image source! */ } width="100%" />
         }
       </div>
       <h4 className="sushi-details">
-        {/* Give me a name! */} - ${/* Give me a price! */}
+        {props.sushiData.name} - ${props.sushiData.price/* Give me a price! */}
       </h4>
     </div>
   )
